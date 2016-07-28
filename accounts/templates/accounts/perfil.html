@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Dashboard</title>
+	<style type="text/css">
+		.success{
+			background: green;
+			color: white;
+			width: 100%;
+		}
+		.error{
+			background: red;
+			color: white;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	{%if messages%}
+	{%for message in messages%}
+	<h2 class="{{message.tags}}">{{message}}</h2>
+	{%endfor%}
+	{%endif%}
+	<h1>Bienvenido a tu perfil {{request.user.username}}</h1>
+	<h2>Bio:</h2>
+	<p>{{request.user.perfil.bio}}</p>
+	<img src="/media/{{request.user.perfil.foto}}">
+</body>
+</html>
